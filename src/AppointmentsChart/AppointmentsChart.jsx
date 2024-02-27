@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 const AppointmentsChart = () => {
   const [patientHealthDetails, setPatientHealthDetails] = useState([]);
@@ -10,7 +10,9 @@ const AppointmentsChart = () => {
     setPatientHealthDetails(patientData.data.appointments);
     // console.log(patientHealthDetails)  
   };
-  getPatientDetails();
+  useEffect(()=>{
+    getPatientDetails();
+  },[])
   return (
     <div className="container-xl w-screen h-auto flex justify-center items-center  ">
       <div className="w-3/4 h-auto m-6 rounded-lg border border-black-200 p-8 shadow-lg flex  flex-col">
@@ -36,7 +38,7 @@ const AppointmentsChart = () => {
                 {patientHealthDetails.map((patient, index) => {
                   return (
                     <>
-                      <tr className=" bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                      <tr key={index} className=" bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                         <div className="flex flex-row justify-space-between items-center p-4">
                           <img
                             src="https://cdn-icons-png.flaticon.com/128/3135/3135715.png"
@@ -99,7 +101,7 @@ const AppointmentsChart = () => {
                           </span>
                         </td>
                         <td className="px-6 py-4">
-                          <span class="bg-gray-400 text-gray-900 text-xs font-medium me-2 p-2 rounded dark:bg-gray-700 dark:text-gray-300">
+                          <span className="bg-gray-400 text-gray-900 text-xs font-medium me-2 p-2 rounded dark:bg-gray-700 dark:text-gray-300">
                             {patient.injury}
                           </span>
                         </td>
