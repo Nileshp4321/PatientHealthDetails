@@ -21,7 +21,7 @@ const AppointmentsChart = () => {
         </div>
         <div className="w-full h-auto">
           <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
-            <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+            <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
               <thead className="text-xs text-gray-600 uppercase bg-gray-100 dark:bg-gray-700 dark:text-gray-400">
                 <tr className="text-center">
                   <th className="px-4 py-2">Patient</th>
@@ -32,16 +32,17 @@ const AppointmentsChart = () => {
                   <th className="px-4 py-2">Action</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody cla>
                 {patientHealthDetails.map((patient, index) => {
                   return (
                     <>
-                      <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                      <tr className="m-5 bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                         <div className="flex flex-row justify-space-between items-center p-4 m-2" style={{width:"200px"}}>
                           <img
                             src="https://cdn-icons-png.flaticon.com/128/3135/3135715.png"
                             width={30}
                             height={30}
+                            alt="User"
                           />
                           <div className="flex flex-col w-150">
                             <div className="m-1">
@@ -65,6 +66,7 @@ const AppointmentsChart = () => {
                                 src="https://cdn-icons-png.flaticon.com/128/2278/2278049.png"
                                 width={20}
                                 height={20}
+                                alt="User"
                               />
                             </div>
                             <div className="m-1">
@@ -79,6 +81,7 @@ const AppointmentsChart = () => {
                                 src="https://cdn-icons-png.flaticon.com/128/66/66163.png"
                                 width={20}
                                 height={20}
+                                alt="User"
                               />
                             </div>
                             <span className="m-1">
@@ -87,15 +90,18 @@ const AppointmentsChart = () => {
                           </div>
                         </td>
                         <td className="">
-                          <div className="flex flex-row" style={{width:"200px"}}>
+                          <div className="flex flex-row justify-center" style={{width:"300px"}}>
                             <div className="m-1">
                               <img
                                 src="https://cdn-icons-png.flaticon.com/128/3334/3334338.png"
                                 width={20}
                                 height={20}
+                                alt="User"
                               />
                             </div>
-                            <span className="m-1">{patient.doctor}</span>
+                            <span className="m-1">
+                              {patient.appointment_time}
+                            </span>
                           </div>
                         </td>
                         <td className="">
@@ -110,6 +116,7 @@ const AppointmentsChart = () => {
                                 src="https://cdn-icons-png.flaticon.com/128/13680/13680757.png"
                                 width={20}
                                 height={20}
+                                alt="User"
                               />
                             </div>
                           </div>
